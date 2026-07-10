@@ -26,33 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   onScrollNav();
   window.addEventListener('scroll', onScrollNav, { passive: true });
 
-  /* ---------- 4. MOBILE MENU ---------- */
-  const navToggle = document.getElementById('navToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const menuBackdrop = document.getElementById('menuBackdrop');
-
-  const closeMenu = () => {
-    navToggle.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    mobileMenu.classList.remove('open');
-    menuBackdrop.classList.remove('open');
-    document.body.style.overflow = '';
-  };
-  const openMenu = () => {
-    navToggle.classList.add('open');
-    navToggle.setAttribute('aria-expanded', 'true');
-    mobileMenu.classList.add('open');
-    menuBackdrop.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.contains('open') ? closeMenu() : openMenu();
-  });
-  menuBackdrop.addEventListener('click', closeMenu);
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-
-  /* ---------- 5. ACTIVE NAV LINK ON SCROLL ---------- */
+  /* ---------- 4. ACTIVE NAV LINK ON SCROLL ---------- */
   const sections = document.querySelectorAll('main section[id]');
   const navAnchors = document.querySelectorAll('[data-nav]');
 
@@ -70,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(sec => sectionObserver.observe(sec));
 
-  /* ---------- 6. SCROLL REVEAL ANIMATIONS ---------- */
+  /* ---------- 5. SCROLL REVEAL ANIMATIONS ---------- */
   const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
   const revealObserver = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
@@ -83,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealEls.forEach(el => revealObserver.observe(el));
 
-  /* ---------- 7. ANIMATED SKILL PROGRESS BARS ---------- */
+  /* ---------- 6. ANIMATED SKILL PROGRESS BARS ---------- */
   const skillFills = document.querySelectorAll('.skill-bar-fill');
   const skillObserver = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
@@ -98,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   skillFills.forEach(el => skillObserver.observe(el));
 
-  /* ---------- 8. HERO TYPEWRITER ---------- */
+  /* ---------- 7. HERO TYPEWRITER ---------- */
   const typewriterEl = document.getElementById('typewriter');
   const phrases = [
     'Java Backend Developer',
@@ -131,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (typewriterEl) typeLoop();
 
-  /* ---------- 9. TERMINAL SIMULATED REQUEST/RESPONSE ---------- */
+  /* ---------- 8. TERMINAL SIMULATED REQUEST/RESPONSE ---------- */
   const terminalBody = document.getElementById('terminalBody');
   const terminalScript = [
     { text: '$ curl -X GET /api/v1/developer', cls: 'prompt', pause: 500 },
@@ -166,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (terminalBody) setTimeout(runTerminal, 900);
 
-  /* ---------- 10. BACK TO TOP ---------- */
+  /* ---------- 9. BACK TO TOP ---------- */
   const backToTop = document.getElementById('back-to-top');
   window.addEventListener('scroll', () => {
     backToTop.classList.toggle('show', window.scrollY > 500);
@@ -175,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* ---------- 11. CONTACT FORM (front-end only) ---------- */
+  /* ---------- 10. CONTACT FORM (front-end only) ---------- */
   const contactForm = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
 
